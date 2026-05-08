@@ -1,0 +1,12 @@
+\begin{tabular}{lr}
+\hline
+Case & C-index & Uno C-index & NSR (0.7%) \\
+\hline
+only U & 0.7512 & 0.6904& 0.052 \\
+only Z & 0.7571 & 0.7176& 0.364 \\
+early fusion & 0.7916 & 0.7321& 0.29 \\
+rho=0.25 & 0.7539 & 0.7048& 0.955 \\
+rho=0.5 & 0.7407 & 0.6979& 0.741 \\
+rho=0.75 & 0.7487 & 0.6758& 0.438 \\
+\hline
+\end{tabular}
