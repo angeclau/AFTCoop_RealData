@@ -3,23 +3,26 @@ title: "AFTCoop real data examples"
 output: rmarkdown::github_document
 ---
 
-# AFTCoop applied to cancer data from TGCA
+# AFTCoop Applied to TCGA Cancer Data
 
-These scripts enable the execution of the real data example described in the manuscript by C. Angelini, D. De Canditiis, I. De Feis, and A. Iuliano. *Cooperative AFT models for multi-omics data integration* submitted (2025).
+This repository contains the scripts required to reproduce the real-data analyses presented in the manuscript: C. Angelini, D. De Canditiis, I. De Feis, and A. Iuliano. *Cooperative AFT models for multi-omics data integration* submitted (2025).
  
-Such an example aims to illustrate the use of the R package **AFTCoop** in fitting cooperative AFT survival regression models with two omics views, corresponding to RNA-seq and DNA Methylation.
+The examples illustrate the use of the **AFTCoop** R package for fitting cooperative Accelerated Failure Time (AFT) survival regression models integrating two omics data views:
+
+- RNA-seq gene expression (that constitutes matrix **U**)
+- DNA methylation (that constitutes matrix **Z**)
 
 ## Description
 
 To execute the simulation:
 
--  Install the R package AFTCoop from GitHub.
--  Download the R script main_TCGA.R in this repository.
--  Download the R object containing the real data (i.e., folder data/).
--  Open the  main_TCGA.R in RStudio and set the working directory to the source file location.
--  Run the  main_TCGA.R script with the given parameter configuration.
--  Output will be saved in the folder Results
--  Run the main_boxplot_TCGA.R script to produce the figures.
+-  Install the R package **AFTCoop** from GitHub.
+-  Download the R script *main_TCGA.R* in this repository.
+-  Open the  *main_TCGA.R* in RStudio and set the working directory to the source file location
+-  Download the R objects containing the real data (i.e., folder **data/**) and locate the folder in your working directory.
+-  Run the  *main_TCGA.R* script with the given parameter configuration.
+-  Output will be saved in the folder **Results**
+-  After the aalysis is complete, run the *main_boxplot_TCGA.R* script to produce the figures.
 
 ## 🧪 AFTCoop Installation
 
@@ -32,15 +35,21 @@ devtools::install_github("angeclau/AFTCoop")
 
 ## 🧪 Running AFTCoop simulation study
 
-The R function main_TCGA.R serves as a wrapper for the entire real data analysis.
+The R function *main_TCGA.R* serves as a wrapper for the entire real data analysis that consist of 4 dataset.
 
-Processed data are available in fodet **data/**  (retrieved from linkedomics (\url{https://www.linkedomics.org/data_download/}).
+Processed data are available in folder **data/**  (retrieved and assembled from linkedomics (\url{https://www.linkedomics.org/data_download/}).
+There are 4 datasets:
 
-- Matrix **U** corresponds to normalized RNA-seq count data (RSEM, $log_2(\text{Val} + 1)$) from the Illumina HiSeq platform; 
+- TCGA_BRCA_2Data.RData  
+- TCGA_COLORECTAL_2Data.RData  
+- TCGA_GLIOMA_2Data.RData  
+- TCGA_UCEC_2Data.RData
 
-- Matrix **Z** corresponds to DNA methylation obtained from the Illumina HumanMethylation450K (HM450K) platform and reported as Beta-values (centered as value-$0.5$) and aggregated at the gene level. 
+For each dataset:
 
-- **Y** corresponds to the overall survival time and censoring indicator.
+- **U:** normalized RNA-seq expression matrix RSEM counts transformed as log2(value + 1) generated from the Illumina HiSeq platform
+- **Z**: DNA methylation matrix obtained from the Illumina HumanMethylation450K (HM450K) platform represented as centered Beta-values (value - 0.5) aggregated at the gene level
+- *Y*: survival outcome information (overall survival time and censoring indicator).
 
 ## 📚 Citation
 please cite:
