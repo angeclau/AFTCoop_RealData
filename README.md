@@ -1,5 +1,5 @@
 ---
-title: "AFTCoop real data examples"
+title: "AFTCoop Real Case Studies"
 output: rmarkdown::github_document
 ---
 
@@ -49,7 +49,7 @@ For each dataset:
 
 - **U:** normalized RNA-seq expression matrix RSEM counts transformed as log2(value + 1) generated from the Illumina HiSeq platform
 - **Z**: DNA methylation matrix obtained from the Illumina HumanMethylation450K (HM450K) platform represented as centered Beta-values (value - 0.5) aggregated at the gene level
-- *Y*: survival outcome information (overall survival time and censoring indicator).
+- **Y**: survival outcome information (overall survival time and censoring indicator).
 
 ## 📚 Citation
 please cite:
