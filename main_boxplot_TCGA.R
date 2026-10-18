@@ -1,5 +1,4 @@
-
-# This function create the C-index e Uno C-index boxplot for the real studies in the manuscript
+# This function create the C-index e Uno C-index boxplot for the real studies in the manuscript.
 
 # Load packages ---
 library(tidyverse)

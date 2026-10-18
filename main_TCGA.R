@@ -72,8 +72,11 @@ tcga_data <- lapply(dataset_files, function(f) {
 #----------------------------------------------------------
 # Run this for each TCGA dataset
 #----------------------------------------------------------
+Start_time_main <- Sys.time()
 
 for (tumor in names(tcga_data)){
+  
+Start_time_dataset <- Sys.time()
   
   cat("\n====================\n")
   cat("Dataset:", tumor, "\n")
@@ -408,5 +411,21 @@ for (tumor in names(tcga_data)){
   # --- Save latex table ---
   file_res <- paste0(dir_out, model,"_latex_table_", rank, "_", tumor, ".txt")
   cat(table_latex, file = file_res, append = FALSE)
-  
+
+  End_time_dataset <- Sys.time()
+  dataset_running_time<-End_time_dataset-Start_time_dataset
+  dataset_running_time
+  print(paste0("Dataset_",tumor,"_Analysis Running time: ",dataset_running_time)) 
+    
 }
+
+End_time_main <- Sys.time()
+total_running_time<-End_time_main-Start_time_main
+total_running_time
+print(paste0("Real data Analysis Running time: ",total_running_time)) 
+
+sessioninfo::session_info()
+
+sink(paste0(dir_out,"/sessionInfo_RealDataAnalysis.txt"))
+sessioninfo::session_info()
+sink() 
